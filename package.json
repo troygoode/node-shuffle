@@ -1,18 +1,26 @@
 {
+  "author": "Troy Goode <troygoode@gmail.com> (https://github.com/troygoode/)",
   "name": "shuffle",
-  "description": "node.js package for shuffling and dealing decks of cards (or anything else you'd like to shuffle)",
   "version": "0.1.0",
+  "description": "node.js package for shuffling and dealing decks of cards (or anything else you'd like to shuffle)",
+  "keywords": ["shuffle", "random", "cards", "games"],
   "homepage": "https://github.com/troygoode/node-shuffle/",
   "repository": {
     "type": "git",
     "url": "git://github.com/troygoode/node-shuffle.git"
   },
-  "author": "Troy Goode <troygoode@gmail.com> (https://github.com/troygoode/)",
+  "contributors": [
+    { "name": "Troy Goode", "web": "https://github.com/troygoode/" }
+  ],
+  "licenses": ["MIT"],
+  "bugs": { "web": "https://github.com/TroyGoode/node-shuffle/issues" },
   "main": "./index.js",
   "directories": {
-    "lib": "lib"
+    "lib": "./lib"
   },
   "engines": {
-    "node": "0.4.x"
-  }
+    "node": "~0.4.4"
+  },
+  "dependencies": {},
+  "devDependencies": {}
 }
