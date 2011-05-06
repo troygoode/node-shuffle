@@ -38,17 +38,17 @@ You don't have to shuffle standard playing cards. You can shuffle other stuff to
     var goFish = [{color: 'red', number: 1}, {color: 'blue', number: 2}, ...];
     var deck = shuffle.shuffle({deck: goFish});
 
-You can also supply your own randomizer so that you can - for instance - supply a custom seed:
+You can also supply your own randomizer so that you can supply a custom seed:
 
     var shuffle = require('shuffle');
-    var srand = require('srand');
+    var srand = require('srand'); //https://github.com/isaacs/node-srand (npm install srand)
     srand.seed(1000);
     var deck = shuffle.shuffle({random: function(){ return srand.rand(); }});
     
 Other deck methods:
 
     deck.drawFromBottomOfDeck() // 1 card
-    deck.drawFromBottomOfDeck(5) / array of 5 cards
+    deck.drawFromBottomOfDeck(5) // array of 5 cards
     
     deck.drawRandom() // 1 card
     deck.drawRandom(5) // array of 5 cards
