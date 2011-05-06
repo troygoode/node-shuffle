@@ -1,6 +1,6 @@
 {
   "name": "shuffle",
-  "description": "?",
+  "description": "node.js package for shuffling and dealing decks of cards (or anything else you'd like to shuffle)",
   "version": "0.1.0",
   "homepage": "https://github.com/troygoode/node-shuffle/",
   "repository": {
