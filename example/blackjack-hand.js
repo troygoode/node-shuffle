@@ -18,9 +18,35 @@ module.exports = function(cards){
     return ret.join(',');
   }
   
-  this.score = function(){
-    //TODO: optimal hand isn't always highest hand...
-    return this.highestValue();
+  this.score = function(target){
+    if(!target)
+      target = 21;
+
+    var high = this.highestValue();
+    var low = this.lowestValue();
+
+    if(high <= target)
+      return high;
+    else if(high === low)
+      return high;
+    else if(low > target)
+      return low;
+      
+    //find number of aces
+    var aces = 0;
+    for(var i = 0; i < this.cards.length; i++)
+      if(this.cards[i].description.toLowerCase() === 'ace')
+        aces++;
+    if(aces === 1)
+      return low;
+
+    var inbetween = high;
+    for(var i = 0; i < aces; i++){
+      inbetween -= 10;
+      if(inbetween <= target)
+        return inbetween;
+    }
+    throw "shouldn't be reachable";
   }
   
   this.highestValue = function(){
