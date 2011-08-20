@@ -10,8 +10,8 @@ Shuffle is a node.js package for shuffling and dealing decks of cards (or anythi
 
 Using shuffle is simple:
 
-    var shuffle = require('shuffle');
-    var deck = shuffle.shuffle();
+    var Shuffle = require('shuffle');
+    var deck = Shuffle.shuffle();
     var card = deck.draw();
 
 Alternatively you can draw multiple cards at once:
@@ -34,16 +34,16 @@ If you need to reset and reshuffle the deck, it is as easy as:
 
 You don't have to shuffle standard playing cards. You can shuffle other stuff too:
 
-    var shuffle = require('shuffle');
+    var Shuffle = require('shuffle');
     var goFish = [{color: 'red', number: 1}, {color: 'blue', number: 2}, ...];
-    var deck = shuffle.shuffle({deck: goFish});
+    var deck = Shuffle.shuffle({deck: goFish});
 
 You can also supply your own randomizer so that you can supply a custom seed:
 
-    var shuffle = require('shuffle');
+    var Shuffle = require('shuffle');
     var srand = require('srand'); //https://github.com/isaacs/node-srand (npm install srand)
     srand.seed(1000);
-    var deck = shuffle.shuffle({random: function(){ return srand.rand(); }});
+    var deck = Shuffle.shuffle({random: function(){ return srand.rand(); }});
     
 Other deck methods:
 
