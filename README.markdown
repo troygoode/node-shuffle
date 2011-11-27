@@ -12,9 +12,11 @@ $ npm install shuffle
 
 Using shuffle is simple:
 
+```javascript
 var Shuffle = require('shuffle');
 var deck = Shuffle.shuffle();
 var card = deck.draw();
+```
 
 Alternatively you can draw multiple cards at once:
 
