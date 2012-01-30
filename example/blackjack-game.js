@@ -1,4 +1,4 @@
-var shuffle = require('../index'),
+var shuffle = require('../lib/index'),
     blackjackHand = require('./blackjack-hand');
 var deck,
     dealer,
