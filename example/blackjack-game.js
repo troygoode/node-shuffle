@@ -10,16 +10,16 @@ module.exports = function(){
   game = this;
   this.onPlayerInputNeeded;
   this.onEnd;
-  
+
   this.begin = function(){
     dealer = new blackjackHand();
     player = new blackjackHand();
     deck = shuffle.shuffle();
     deck.deal(2, [dealer, player]);
-    
+
     isGameOver(playerTurn);
   }
-  
+
   function playerTurn(){
     displayGameStatus();
     console.log('\nHit or stay?');
@@ -44,15 +44,15 @@ module.exports = function(){
       }
     });
   }
-  
+
   function dealerTurn(){
     var dealerPause = 1000; //milliseconds
     displayGameStatus();
-    
+
     setTimeout(function(){
       var dealerScore = dealer.score();
       var playerScore = player.score();
-    
+
       if(dealerScore >= 16 && dealerScore >= playerScore){
         console.log('\nDealer stays.');
         dealerHasStayed = true;
@@ -60,14 +60,14 @@ module.exports = function(){
         console.log('\nDealer hits.');
         dealer.push(deck.draw());
       }
-      
+
       setTimeout(function(){
         isGameOver(dealerTurn);
       }, dealerPause);
-      
+
     }, dealerPause);
   }
-  
+
   function isGameOver(callback){
     var target = 21;
     var dealerScore = dealer.score(target);
@@ -96,7 +96,7 @@ module.exports = function(){
       callback();
     }
   }
-  
+
   function displayGameStatus(gameIsOver){
     var target = 21;
     if(playerHasStayed || gameIsOver)
