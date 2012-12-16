@@ -2,7 +2,7 @@
 
 Shuffle is a node.js package for shuffling and dealing decks of cards (or anything else you'd like to shuffle).
 
-## Installation
+## Installation (via [npm](https://npmjs.org/package/shuffle))
 
 ```bash
 $ npm install shuffle
