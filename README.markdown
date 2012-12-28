@@ -2,6 +2,8 @@
 
 Shuffle is a node.js package for shuffling and dealing decks of cards (or anything else you'd like to shuffle).
 
+[![build status](https://secure.travis-ci.org/TroyGoode/node-shuffle.png)](http://travis-ci.org/TroyGoode/node-shuffle)
+
 ## Installation (via [npm](https://npmjs.org/package/shuffle))
 
 ```bash
@@ -56,7 +58,7 @@ You can also supply your own randomizer so that you can supply a custom seed:
 var Shuffle = require('shuffle');
 var srand = require('srand'); //https://github.com/isaacs/node-srand (npm install srand)
 srand.seed(1000);
-var deck = Shuffle.shuffle({random: function(){ return srand.rand(); }});
+var deck = Shuffle.shuffle({random: function(){ return srand.random(); }});
 ```
 
 Other deck methods:
@@ -74,7 +76,7 @@ deck.putOnTopOfDeck([card, card, card])
 deck.putOnBottomOfDeck(card)
 deck.putOnBottomOfDeck([card, card, card])
 
-deck.length() // integer (# of cards left in deck)
+deck.length // integer (# of cards left in deck)
 ```
 
 ## License

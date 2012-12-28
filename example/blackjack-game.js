@@ -1,13 +1,17 @@
 var shuffle = require('../lib/index'),
-    blackjackHand = require('./blackjack-hand');
+    blackjackHand = require('./blackjack-hand'),
+    EventEmitter = require('events').EventEmitter,
+    util = require('util');
 var deck,
     dealer,
     player,
     dealerHasStayed = false,
     playerHasStayed = false;
 
-module.exports = function(){
-  game = this;
+function Game(){
+  EventEmitter.call(this);
+
+  var game = this;
   this.onPlayerInputNeeded;
   this.onEnd;
 
@@ -24,7 +28,7 @@ module.exports = function(){
     displayGameStatus();
     console.log('\nHit or stay?');
 
-    game.onPlayerInputNeeded(function(command){
+    var handleInput = function(command){
       switch(command.toLowerCase()){
         case 'hit':
           player.push(deck.draw());
@@ -35,14 +39,15 @@ module.exports = function(){
           dealerTurn();
           break;
         case 'quit':
-          game.onEnd();
+          game.emit('end');
           break;
         default:
           console.log('Unknown commmand: ' + command.toLowerCase());
           playerTurn();
           break;
       }
-    });
+    };
+    game.emit('input', handleInput);
   }
 
   function dealerTurn(){
@@ -76,22 +81,22 @@ module.exports = function(){
     if(dealerScore == target){
       displayGameStatus(true);
       console.log('Dealer has 21, YOU LOSE.\n');
-      game.onEnd();
+      game.emit('end');
     }else if(playerScore > target){
       displayGameStatus(true);
       console.log('You have busted, YOU LOSE.\n');
-      game.onEnd();
+      game.emit('end');
     }else if(dealerScore > target){
       displayGameStatus(true);
       console.log('Dealer has busted, YOU WIN!\n');
-      game.onEnd();
+      game.emit('end');
     }else if(dealerHasStayed){
       displayGameStatus(true);
       if(dealerScore >= playerScore)
         console.log('YOU LOSE.\n');
       else
         console.log('YOU WIN!\n');
-      game.onEnd();
+      game.emit('end');
     }else{
       callback();
     }
@@ -106,3 +111,6 @@ module.exports = function(){
     console.log('Player: %s (%d)', player.toString(), player.score(target));
   }
 };
+
+util.inherits(Game, EventEmitter);
+module.exports = Game;

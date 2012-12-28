@@ -1,7 +1,7 @@
 {
   "author": "Troy Goode <troygoode@gmail.com> (https://github.com/troygoode/)",
   "name": "shuffle",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "node.js package for shuffling and dealing decks of cards (or anything else you'd like to shuffle)",
   "keywords": ["shuffle", "random", "cards", "games"],
   "homepage": "https://github.com/troygoode/node-shuffle/",
@@ -28,6 +28,12 @@
     "node": ">=0.4.0"
   },
   "dependencies": {},
-  "devDependencies": {},
-  "scripts": {}
+  "devDependencies": {
+    "mocha": "latest",
+    "should": "latest"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node example/blackjack.js"
+  }
 }

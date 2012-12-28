@@ -1,15 +1,15 @@
-var blackjackGame = require('./blackjack-game');
-var game = new blackjackGame();
+var BlackjackGame = require('./blackjack-game'),
+    game = new BlackjackGame(),
+    input = process.openStdin();
 
-var input = process.openStdin();
 input.setEncoding('utf8');
 
-game.onPlayerInputNeeded = function(callback){
+game.on('input', function(callback){
   input.once('data', function(command){
     callback(command.substring(0, command.length -1));
   });
-};
-game.onEnd = function(){
+});
+game.on('end', function(){
   input.destroy();
-}
+});
 game.begin();
