@@ -17,7 +17,7 @@ module.exports = function(cards){
         ret.push(this.cards[i].toShortDisplayString());
     return ret.join(',');
   }
-  
+
   this.score = function(target){
     if(!target)
       target = 21;
@@ -31,7 +31,7 @@ module.exports = function(cards){
       return high;
     else if(low > target)
       return low;
-      
+
     //find number of aces
     var aces = 0;
     for(var i = 0; i < this.cards.length; i++)
@@ -48,7 +48,7 @@ module.exports = function(cards){
     }
     throw "shouldn't be reachable";
   }
-  
+
   this.highestValue = function(){
     var ret = 0;
     for(var i = 0; i < this.cards.length; i++){
