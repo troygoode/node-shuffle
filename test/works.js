@@ -51,4 +51,11 @@ describe('shuffle', function(){
     card.toShortDisplayString().should.equal('AS');
     deck.length.should.equal(51);
   });
+
+  it('issue #3', function () {
+    var deck = shuffle.shuffle({ random: rnd });
+    deck.length.should.equal(52);
+    var card = deck.drawFromBottomOfDeck(1);
+    deck.length.should.equal(51);
+  });
 });
