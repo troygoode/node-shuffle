@@ -5,9 +5,6 @@ var shuffle = require('../../lib/index'),
 var pThirdCard = -1;
 var playerThirdCard;
 
-var srand = require('srand');
-srand.seed(1000);
-//var shoe = shuffle.shuffle({random: function(){ return srand.random(); }, numberOfDecks: 8}),
 var shoe = shuffle.shuffle({numberOfDecks: 8}),
     player, banker;
 
