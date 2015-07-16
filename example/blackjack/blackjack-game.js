@@ -1,4 +1,4 @@
-var shuffle = require('../lib/index'),
+var shuffle = require('../../lib/index'),
     blackjackHand = require('./blackjack-hand'),
     EventEmitter = require('events').EventEmitter,
     util = require('util');
