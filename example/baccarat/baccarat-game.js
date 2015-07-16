@@ -1,9 +1,7 @@
 var shuffle = require('../../lib/index'),
     baccaratHand = require('./baccarat-hand'),
     EventEmitter = require('events').EventEmitter,
-    util = require('util'),
-    async = require('async'),
-    prompt = require('prompt');
+    util = require('util');
 var pThirdCard = -1;
 var playerThirdCard;
 
