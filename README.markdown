@@ -63,6 +63,13 @@ srand.seed(1000);
 var deck = Shuffle.shuffle({random: function(){ return srand.random(); }});
 ```
 
+You can also supply number of decks to play with:
+
+```javascript
+var Shuffle = require('shuffle');
+var deck = Shuffle.shuffle({numberOfDecks: 8});
+```
+
 Other deck methods:
 
 ```javascript
