@@ -1,5 +1,5 @@
 var should = require('should')
-  , shuffle = require('../lib');
+  , shuffle = require('../src');
 
 var rnd = function(){ return .25; }; // de-randomizing
 

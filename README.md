@@ -31,7 +31,7 @@ var hand = deck.draw(5);
 You can also use it to deal cards to multiple hands:
 
 ```javascript
-var player1, player2, player3, player4;
+var player1 = [], player2 = [], player3 = [], player4 = [];
 deck.deal(5, [player1, player2, player3, player4]);
 ```
 
