@@ -40,6 +40,18 @@ describe('shuffle', function(){
     deck.length.should.equal(50);
   });
 
+  it('deal(5) works', function () {
+    var deck = shuffle.shuffle({ random: rnd });
+    deck.length.should.equal(52);
+
+    var player1 = [], player2 = [];
+    deck.deal(5, [player1, player2]);
+
+    deck.length.should.equal(42);
+    player1.length.should.equal(5);
+    player2.length.should.equal(5);
+  });
+
   it('reset works', function(){
     var deck = shuffle.shuffle({ random: rnd });
     var card = deck.draw();
@@ -57,5 +69,22 @@ describe('shuffle', function(){
     deck.length.should.equal(52);
     var card = deck.drawFromBottomOfDeck(1);
     deck.length.should.equal(51);
+  });
+
+  it('issue #5', function () {
+    var deck = shuffle.shuffle({ random: rnd });
+    deck.length.should.equal(52);
+
+    var error;
+    var player1, player2;
+    try {
+      deck.deal(5, [player1, player2]);
+    } catch (e) {
+      error = e;
+    }
+
+    should.exist(error);
+    should.exist(error.message);
+    error.message.should.equal('Deck#deal | Undefined Hand');
   });
 });
